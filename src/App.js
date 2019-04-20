@@ -61,15 +61,20 @@ class App extends Component {
           <Navbar.Collapse>
             <Nav pullRight>
               {this.state.isAuthenticated
-                ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
+                ? <Fragment>
+                  <LinkContainer to="/settings">
+                    <NavItem>Settings</NavItem>
+                  </LinkContainer>
+                  <NavItem onClick={this.handleLogout}>Logout</NavItem>
+                </Fragment>
                 : <Fragment>
-                    <LinkContainer to="/signup">
-                      <NavItem>Signup</NavItem>
-                    </LinkContainer>
-                    <LinkContainer to="/login">
-                      <NavItem>Login</NavItem>
-                    </LinkContainer>
-                  </Fragment>
+                  <LinkContainer to="/signup">
+                    <NavItem>Signup</NavItem>
+                  </LinkContainer>
+                  <LinkContainer to="/login">
+                    <NavItem>Login</NavItem>
+                  </LinkContainer>
+                </Fragment>
               }
             </Nav>
           </Navbar.Collapse>
